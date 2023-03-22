@@ -1,91 +1,60 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from './page.module.css'
+import RequestAccess from "@/components/request-access";
+import { Toaster } from "@/components/toaster";
+import { useToast } from "@/hooks/use-toast";
+import { Inter } from "next/font/google";
+import Image from "next/image";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <main className="max-w-sm xl:max-w-screen-xl m-auto pt-[140px]">
+      <div className="flex flex-col items-center">
+        <span className="font-semibold text-[10px] bg-[#F4F4F4] text-[#232323] px-4 border-[1px] border-black rounded-full w-fit">
+          Currently in private beta
+        </span>
+        <h1 className="font-extrabold text-7xl text-[#232323] pt-10">
+          Ruthlessly test
+        </h1>
+        <h1 className="font-extrabold text-7xl text-[#232323]">
+          Scale beyond limits
+        </h1>
+        <h3 className="text-xl font-light w-[54ch] text-center pt-8">
+          Built on top of great products. Utilising the power, speed and
+          accessibility of great innovation to power testing efficiency at
+          scale.
+        </h3>
+        <div className="py-10 flex">
+          <input
+            className="w-[480px] mr-2 bg-[#F8F8F8] h-[32px] px-4 rounded-md"
+            placeholder="email address"
+          />
+          <RequestAccess />
         </div>
-      </div>
-
-      <div className={styles.center}>
         <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
+          className="drop-shadow-[0_35px_35px_rgba(0,0,0,0.12)] rounded-2xl"
+          src={"/hero.png"}
+          height={730}
+          width={1280}
+          alt="hero-image"
         />
-        <div className={styles.thirteen}>
-          <Image src="/thirteen.svg" alt="13" width={40} height={31} priority />
+        <h2 className="pt-24 font-bold text-2xl text-[#232323]">
+          Powered by great products.
+        </h2>
+        <h3 className="text-lg font-light w-[72ch] text-center pt-4">
+          Built on top of great products. Utilising the power, speed and
+          accessibility of great innovation to power testing efficiency at
+          scale.
+        </h3>
+        <div className="flex justify-between w-full py-16">
+          <Image src={"/clerk.png"} height={24} width={67} alt="clerk" />
+          <Image src={"/grafana.png"} height={24} width={96} alt="grafana" />
+          <Image src={"/vercel.png"} height={24} width={95} alt="vercel" />
+          <Image src={"/vultr.png"} height={24} width={63} alt="vultr" />
+          <Image src={"/stripe.png"} height={24} width={79} alt="stripe" />
         </div>
       </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+      {/* <Toaster /> */}
     </main>
-  )
+  );
 }
