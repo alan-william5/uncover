@@ -1,6 +1,7 @@
 import Image from "next/image";
 import "./globals.css";
 import { Toaster } from "@/components/toaster";
+import { Button } from "@/components/button";
 
 export const metadata = {
   title: "Create Next App",
@@ -19,6 +20,7 @@ export default function RootLayout({
           <div className="max-w-sm xl:max-w-screen-xl m-auto flex justify-between h-[5rem] font-bold items-center border-b border-b-zinc-200">
             <div className="flex">
               <Image
+                loading="eager"
                 className="mr-8"
                 src={"/uncover-dark-main-logo.svg"}
                 width={159}
@@ -33,12 +35,15 @@ export default function RootLayout({
               </div> */}
             </div>
             <div className="font-medium text-sm">
-              <button className="h-[32px] w-[99px] text-[#232323] border-2 border-[#232323] rounded-md mr-4 font-medium text-[14px]">
+              <Button
+                variant={"ghost"}
+                className="h-[32px] w-[99px] bg-white text-[#232323] border-2 border-[#232323] rounded-md mr-4 font-medium text-[14px]"
+              >
                 Sign In
-              </button>
-              <button className="h-[32px] w-[156px] text-white bg-[#232323] rounded-md font-medium text-[14px]">
+              </Button>
+              <Button className="h-[32px] w-[156px] text-white bg-[#232323] rounded-md font-medium text-[14px]">
                 Request acccess
-              </button>
+              </Button>
             </div>
           </div>
         </nav>

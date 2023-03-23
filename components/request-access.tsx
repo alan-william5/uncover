@@ -1,13 +1,14 @@
 "use client";
 
 import { useToast } from "@/hooks/use-toast";
+import { Button } from "./button";
 
 export default function RequestAccess() {
   const { toast } = useToast();
 
   return (
-    <button
-      className="h-[32px] w-[156px] text-white bg-[#232323] rounded-md font-medium text-[14px]"
+    <Button
+      className="h-[32px] xl:w-1/3 w-full text-white bg-[#232323] rounded-md font-medium text-[14px]"
       onClick={() => {
         toast({
           title: "Scheduled: Catch up",
@@ -16,6 +17,6 @@ export default function RequestAccess() {
       }}
     >
       Request acccess
-    </button>
+    </Button>
   );
 }
