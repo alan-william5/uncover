@@ -1,7 +1,7 @@
 export default function PrivacyPolicy() {
   return (
     <main>
-      Privacy Policy Agreement for uncover At uncover, we are
+      {/* Privacy Policy Agreement for uncover At uncover, we are
       committed to protecting the privacy and security of our users. This
       privacy policy outlines the types of personal information we collect from
       our users and how we use, share, and protect that information. Information
@@ -36,7 +36,7 @@ export default function PrivacyPolicy() {
       any changes to the policy by email or by posting a notice on our website.
       Contact Us If you have any questions or concerns about our privacy policy
       or the way we handle your personal information, please contact us at
-      contact@uncover.ws.
+      contact@uncover.ws. */}
     </main>
   );
 }

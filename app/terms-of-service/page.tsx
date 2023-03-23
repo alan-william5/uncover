@@ -1,7 +1,7 @@
 export default function PrivacyPolicy() {
   return (
     <main>
-      Terms of Service Agreement for [Website Name] Welcome to [Website Name].
+      {/* Terms of Service Agreement for [Website Name] Welcome to [Website Name].
       By using our website, you agree to comply with and be bound by the
       following terms of service. Acceptance of Terms By using [Website Name],
       you agree to be bound by these terms of service, as well as any additional
@@ -38,7 +38,7 @@ export default function PrivacyPolicy() {
       any time. Any changes will be effective immediately upon posting on our
       website. Contact Us If you have any questions or concerns about these
       terms of service or the way we operate our website, please contact us at
-      [contact email].
+      [contact email]. */}
     </main>
   );
 }
