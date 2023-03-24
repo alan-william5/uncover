@@ -2,6 +2,7 @@ import Image from "next/image";
 import "./globals.css";
 import { Toaster } from "@/components/toaster";
 import { Button } from "@/components/button";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/popover";
 
 export const metadata = {
   title: "Create Next App",
@@ -16,8 +17,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-white">
-        <nav className="fixed w-full backdrop-blur-sm bg-[rgba(255,255,255,0.45)]">
-          <div className="max-w-sm xl:max-w-screen-xl m-auto flex justify-between h-[5rem] font-bold items-center border-b border-b-zinc-200">
+        <nav className="fixed w-full backdrop-blur-sm bg-[rgba(255,255,255,0.45)] z-50">
+          <div className="max-w-xs md:max-w-screen-md xl:max-w-screen-xl m-auto flex justify-between h-[5rem] font-bold items-center border-b border-b-zinc-200">
             <div className="flex">
               <Image
                 loading="eager"
@@ -27,14 +28,8 @@ export default function RootLayout({
                 height={23}
                 alt="uncover-light-main-logo"
               />
-              {/* <div className="flex text-sm font-medium">
-                <h3 className="px-2">Feature</h3>
-                <h3 className="px-2">Method</h3>
-                <h3 className="px-2">Pricing</h3>
-                <h3 className="px-2">Company</h3>
-              </div> */}
             </div>
-            <div className="font-medium text-sm">
+            <div className="hidden md:flex font-medium text-sm">
               <Button
                 variant={"ghost"}
                 className="h-[32px] w-[99px] bg-white text-[#232323] border-2 border-[#232323] rounded-md mr-4 font-medium text-[14px]"
@@ -44,6 +39,14 @@ export default function RootLayout({
               <Button className="h-[32px] w-[156px] text-white bg-[#232323] rounded-md font-medium text-[14px]">
                 Request acccess
               </Button>
+            </div>
+            <div className="flex md:hidden">
+              <Popover>
+                <PopoverTrigger>Open</PopoverTrigger>
+                <PopoverContent>
+                  Place content for the popover here.
+                </PopoverContent>
+              </Popover>
             </div>
           </div>
         </nav>
