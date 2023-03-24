@@ -1,0 +1,8 @@
+{
+    "functions": {
+        "api/register-request-access/route.ts": {
+            "memory": 128,
+            "maxDuration": 10
+        }
+    }
+}
