@@ -1,5 +1,4 @@
-import { Input } from "@/components/input";
-import RequestAccess from "@/components/request-access";
+import { HandleRequestAccess } from "@/components/handle-request-access";
 import { Inter, Linden_Hill } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
@@ -26,14 +25,7 @@ export default function Home() {
           performance at the core. Test ruthlessly and sacle beyond limits as
           you mitigate site downtime leading to bad UX.
         </h3>
-        <div className="py-10 flex flex-col md:flex-row w-full space-y-2 md:space-x-2 max-w-xl items-center">
-          <Input
-            type="email"
-            className="bg-[#F8F8F8] h-[32px] px-4 rounded-md xl:w-2/3 w-full"
-            placeholder="email address"
-          />
-          <RequestAccess />
-        </div>
+        <HandleRequestAccess />
         <Image
           loading="eager"
           className="drop-shadow-[0_35px_35px_rgba(0,0,0,0.12)] rounded-2xl"

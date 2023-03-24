@@ -4,7 +4,11 @@ import { useToast } from "@/hooks/use-toast";
 import { Button } from "./button";
 import { useCallback, useState } from "react";
 
-export default function RequestAccess(emailAddress: string | undefined) {
+export default function RequestAccess({
+  emailAddress,
+}: {
+  emailAddress: string | undefined;
+}) {
   const { toast } = useToast();
   const [disabled, setDisable] = useState(false);
 
