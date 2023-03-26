@@ -1,10 +1,10 @@
 import { verifyEmailAddress, addEmailAddressToDatabase } from "@/lib/api";
-import type { NextRequest } from "next/server";
+// import type { NextRequest } from "next/server";
 
 export const runtime = "experimental-edge";
 export const preferredRegion = "edge";
 
-export async function POST(request: NextRequest) {
+export async function POST(request: Request) {
   const body = await request.json();
   const verified = await verifyEmailAddress(body.emailAddress);
   if (verified.status === 200) {
