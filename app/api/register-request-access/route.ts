@@ -1,8 +1,5 @@
 import { verifyEmailAddress, addEmailAddressToDatabase } from "@/lib/api";
 
-export const runtime = "experimental-edge";
-export const preferredRegion = "edge";
-
 export async function POST(request: Request) {
   const body = await request.json();
   const verified = await verifyEmailAddress(body.emailAddress);
