@@ -16,7 +16,7 @@ export default function RequestAccess({
     if (!emailAddress) return;
     setDisable(true);
     const res = await fetch(
-      "https://uncover-batman-xyz.vercel.app/api/register-request-access",
+      "https://preview.uncover.ws/api/register-request-access",
       {
         method: "POST",
         body: JSON.stringify({ emailAddress }),
