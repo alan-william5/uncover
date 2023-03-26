@@ -13,6 +13,7 @@ export default function RequestAccess({
   const [disabled, setDisable] = useState(false);
 
   const handleSubmit = useCallback(async () => {
+    if (!emailAddress) return;
     setDisable(true);
     const res = await fetch(
       "https://uncover-batman-xyz.vercel.app/api/register-request-access",
@@ -28,6 +29,7 @@ export default function RequestAccess({
       title: "Scheduled: Catch up",
       description: "Friday, February 10, 2023 at 5:57 PM",
     });
+    setDisable(false);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [emailAddress]);
 

@@ -1,3 +1,5 @@
+import { createConneciton } from "./utils";
+
 export async function verifyEmailAddress(emailAddress: string) {
   try {
     const res = await fetch(
@@ -49,10 +51,23 @@ export async function verifyEmailAddress(emailAddress: string) {
       return { message: "bad email address", status: 403 };
     }
 
-    console.debug(`${domain}, ${first_name}, ${last_name}, ${score}, ${state}`);
     return { message: "email added", status: 200 };
   } catch (err) {
     console.error(err);
     return { message: null, status: 500 };
   }
+}
+
+export async function addEmailAddressToDatabase(emailAddress: string) {
+  const connection = createConneciton();
+  connection.query(
+    `INSERT INTO wishlist (email) VALUES (${emailAddress})`,
+    (error) => {
+      if (error) {
+        console.error(error);
+        throw error;
+      }
+    }
+  );
+  connection.end();
 }
