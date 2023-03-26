@@ -25,7 +25,7 @@ export default function Home() {
           performance at the core. Test ruthlessly and sacle beyond limits as
           you mitigate site downtime leading to bad UX.
         </h3>
-        <HandleRequestAccess />
+        {/* <HandleRequestAccess /> */}
         <Image
           loading="eager"
           className="drop-shadow-[0_35px_35px_rgba(0,0,0,0.12)] rounded-2xl"

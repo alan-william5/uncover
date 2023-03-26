@@ -29,7 +29,7 @@ export default function RootLayout({
                 alt="uncover-light-main-logo"
               />
             </div>
-            <div className="hidden md:flex font-medium text-sm">
+            {/* <div className="hidden md:flex font-medium text-sm">
               <Button
                 variant={"ghost"}
                 className="h-[32px] w-[99px] bg-white text-[#232323] border-2 border-[#232323] rounded-md mr-4 font-medium text-[14px]"
@@ -47,7 +47,7 @@ export default function RootLayout({
                   Place content for the popover here.
                 </PopoverContent>
               </Popover>
-            </div>
+            </div> */}
           </div>
         </nav>
         {children}
