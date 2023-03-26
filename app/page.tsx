@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const dynamic = "force-static";
+export const runtime = "experimental-edge";
+export const preferredRegion = "edge";
 
 const inter = Inter({ subsets: ["latin"] });
 

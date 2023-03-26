@@ -1,5 +1,5 @@
 import { ClassValue, clsx } from "clsx";
-import { Connection, createConnection } from "mysql2";
+import { connect } from "@planetscale/database";
 import { twMerge } from "tailwind-merge";
 
 export function cn(...inputs: ClassValue[]) {
@@ -7,8 +7,10 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function createConneciton() {
-  const connection = createConnection(process.env.PLANETSCALE_DB_URI!);
-  connection.connect();
-  return connection;
+  const config = {
+    host: process.env.DATABASE_HOST,
+    username: process.env.DATABASE_USERNAME,
+    password: process.env.DATABASE_PASSWORD,
+  };
+  return connect(config);
 }
-

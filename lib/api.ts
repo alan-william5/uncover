@@ -60,14 +60,7 @@ export async function verifyEmailAddress(emailAddress: string) {
 
 export async function addEmailAddressToDatabase(emailAddress: string) {
   const connection = createConneciton();
-  connection.query(
-    `INSERT INTO wishlist (email) VALUES (${emailAddress})`,
-    (error) => {
-      if (error) {
-        console.error(error);
-        throw error;
-      }
-    }
+  const results = await connection.execute(
+    `INSERT INTO wishlist (email) VALUES (${emailAddress})`
   );
-  connection.end();
 }
