@@ -61,6 +61,6 @@ export async function verifyEmailAddress(emailAddress: string) {
 export async function addEmailAddressToDatabase(emailAddress: string) {
   const connection = createConneciton();
   const results = await connection.execute(
-    `INSERT INTO wishlist (email) VALUES (${emailAddress})`
+    `INSERT INTO wishlist (email) VALUES ("${emailAddress}")`
   );
 }
