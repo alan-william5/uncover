@@ -30,34 +30,14 @@ export default function RequestAccess({
   const handleSubmit = useCallback(async () => {
     if (!emailAddress) return;
     setDisable(true);
-    if (await hasEmailAddressBeenChecked(emailAddress)) {
-      toast({
-        title: "Email already exists",
-      });
-      return;
-    }
-
-    const verified = await verifyEmailAddress(emailAddress);
-    await addToRedis(emailAddress);
-    if (verified.status === 200) {
-      await addEmailAddressToDatabase(emailAddress);
-      toast({
-        title: "Email registered for access",
-      });
-      return;
-    }
-    // const res = await fetch(
-    //   `${whichDomain()}api/register-request-access?emailAddress=${emailAddress}`,
-    //   {
-    //     method: "GET",
-    //     // body: JSON.stringify({ emailAddress }),
-    //     // headers: {
-    //     //   "Content-Type": "application/json",
-    //     // },
-    //   }
-    // );
+    const res = await fetch(
+      `${whichDomain()}api/register-request-access?emailAddress=${emailAddress}`,
+      {
+        method: "GET",
+      }
+    );
     toast({
-      title: "Error",
+      title: `${await res.text()}`,
     });
     setDisable(false);
     // eslint-disable-next-line react-hooks/exhaustive-deps
