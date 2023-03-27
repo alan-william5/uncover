@@ -3,6 +3,12 @@
 import { useToast } from "@/hooks/use-toast";
 import { Button } from "./button";
 import { useCallback, useState } from "react";
+import {
+  addEmailAddressToDatabase,
+  addToRedis,
+  hasEmailAddressBeenChecked,
+  verifyEmailAddress,
+} from "@/lib/api";
 
 function whichDomain() {
   if (process.env.NEXT_PUBLIC_VERCEL_ENV === "preview")
@@ -24,19 +30,34 @@ export default function RequestAccess({
   const handleSubmit = useCallback(async () => {
     if (!emailAddress) return;
     setDisable(true);
-    const res = await fetch(
-      `${whichDomain()}api/register-request-access?emailAddress=${emailAddress}`,
-      {
-        method: "GET",
-        // body: JSON.stringify({ emailAddress }),
-        // headers: {
-        //   "Content-Type": "application/json",
-        // },
-      }
-    );
+    if (await hasEmailAddressBeenChecked(emailAddress)) {
+      toast({
+        title: "Email already exists",
+      });
+      return;
+    }
+
+    const verified = await verifyEmailAddress(emailAddress);
+    await addToRedis(emailAddress);
+    if (verified.status === 200) {
+      await addEmailAddressToDatabase(emailAddress);
+      toast({
+        title: "Email registered for access",
+      });
+      return;
+    }
+    // const res = await fetch(
+    //   `${whichDomain()}api/register-request-access?emailAddress=${emailAddress}`,
+    //   {
+    //     method: "GET",
+    //     // body: JSON.stringify({ emailAddress }),
+    //     // headers: {
+    //     //   "Content-Type": "application/json",
+    //     // },
+    //   }
+    // );
     toast({
-      title: "Scheduled: Catch up",
-      description: "Friday, February 10, 2023 at 5:57 PM",
+      title: "Error",
     });
     setDisable(false);
     // eslint-disable-next-line react-hooks/exhaustive-deps

@@ -19,7 +19,7 @@ export async function GET(request: NextRequest) {
     return new Response("Email address already checked", {
       status: 200,
       headers: {
-        "Cache-Control": "s-maxage=86400",
+        "Cache-Control": "s-maxage=2678400",
       },
     });
   }
@@ -35,7 +35,7 @@ export async function GET(request: NextRequest) {
   return new Response(verified?.message, {
     status: verified?.status,
     headers: {
-      "Cache-Control": "s-maxage=86400",
+      "Cache-Control": "s-maxage=2678400",
     },
   });
 }
