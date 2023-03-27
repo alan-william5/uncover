@@ -4,6 +4,15 @@ import { useToast } from "@/hooks/use-toast";
 import { Button } from "./button";
 import { useCallback, useState } from "react";
 
+function whichDomain() {
+  if (process.env.NEXT_PUBLIC_VERCEL_ENV === "preview")
+    return "https://preview.uncover.ws/";
+  else if (process.env.NEXT_PUBLIC_VERCEL_ENV === "development")
+    return "http://localhost:3000/";
+
+  return "https://uncover.ws/";
+}
+
 export default function RequestAccess({
   emailAddress,
 }: {
@@ -16,7 +25,7 @@ export default function RequestAccess({
     if (!emailAddress) return;
     setDisable(true);
     const res = await fetch(
-      "http://localhost:3000/api/register-request-access?query=new",
+      `${whichDomain()}api/register-request-access?emailAddress=${emailAddress}`,
       {
         method: "GET",
         // body: JSON.stringify({ emailAddress }),
