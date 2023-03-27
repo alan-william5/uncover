@@ -16,13 +16,13 @@ export default function RequestAccess({
     if (!emailAddress) return;
     setDisable(true);
     const res = await fetch(
-      "https://preview.uncover.ws/api/register-request-access",
+      "http://localhost:3000/api/register-request-access?query=new",
       {
-        method: "POST",
-        body: JSON.stringify({ emailAddress }),
-        headers: {
-          "Content-Type": "application/json",
-        },
+        method: "GET",
+        // body: JSON.stringify({ emailAddress }),
+        // headers: {
+        //   "Content-Type": "application/json",
+        // },
       }
     );
     toast({

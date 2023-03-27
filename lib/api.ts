@@ -16,7 +16,7 @@ export async function verifyEmailAddress(emailAddress: string) {
         res.statusText,
         await res.json()
       );
-      return { message: "Service taking too long", status: 204 };
+      return { message: "Service taking too long", status: 249 };
     }
 
     if (!res.ok) {
@@ -27,7 +27,7 @@ export async function verifyEmailAddress(emailAddress: string) {
         res.statusText,
         await res.json()
       );
-      return { message: null, status: 500 };
+      return { message: null, status: 404 };
     }
 
     const {
@@ -49,7 +49,7 @@ export async function verifyEmailAddress(emailAddress: string) {
         `mailbox full: ${mailbox_full}`,
         `no reply address: ${no_reply}`
       );
-      return { message: "bad email address", status: 403 };
+      return { message: "bad email address", status: 404 };
     }
 
     return { message: "email added", status: 200 };
@@ -80,10 +80,10 @@ export async function hasEmailAddressBeenChecked(emailAddress: string) {
       console.error(`${res.status}: `, res.statusText);
     }
     const data = await res.json();
-    return data.result === 1;
+    return data.result === "1";
   } catch (err) {
     console.error(err);
-    throw err;
+    return false;
   }
 }
 
