@@ -16,6 +16,7 @@
     "clsx": "^1.2.1",
     "eslint": "8.36.0",
     "eslint-config-next": "13.2.4",
+    "hash-sum": "^2.0.0",
     "lucide-react": "^0.127.0",
     "next": "13.2.5-canary.18",
     "react": "18.2.0",
@@ -24,6 +25,7 @@
     "tailwindcss-animate": "^1.0.5"
   },
   "devDependencies": {
+    "@types/hash-sum": "^1.0.0",
     "@types/node": "18.15.0",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",

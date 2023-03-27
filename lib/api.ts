@@ -1,4 +1,5 @@
 import { createConneciton } from "./utils";
+import sum from "hash-sum";
 
 export async function verifyEmailAddress(emailAddress: string) {
   try {
@@ -60,7 +61,47 @@ export async function verifyEmailAddress(emailAddress: string) {
 
 export async function addEmailAddressToDatabase(emailAddress: string) {
   const connection = createConneciton();
-  const results = await connection.execute(
+  return await connection.execute(
     `INSERT INTO wishlist (email) VALUES ("${emailAddress}")`
   );
+}
+
+export async function hasEmailAddressBeenChecked(emailAddress: string) {
+  try {
+    const res = await fetch(
+      `${process.env.UPSTASH_REDIS_REST_URL}/get/${sum(emailAddress)}`,
+      {
+        headers: {
+          Authorization: `Bearer ${process.env.UPSTASH_REDIS_REST_TOKEN}`,
+        },
+      }
+    );
+    if (!res.ok) {
+      console.error(`${res.status}: `, res.statusText);
+    }
+    const data = await res.json();
+    return data.result === 1;
+  } catch (err) {
+    console.error(err);
+    throw err;
+  }
+}
+
+export async function addToRedis(emailAddress: string) {
+  try {
+    const res = await fetch(
+      `${process.env.UPSTASH_REDIS_REST_URL}/set/${sum(emailAddress)}/1`,
+      {
+        headers: {
+          Authorization: `Bearer ${process.env.UPSTASH_REDIS_REST_TOKEN}`,
+        },
+      }
+    );
+    if (!res.ok) {
+      console.error(`${res.status}: `, res.statusText);
+    }
+  } catch (err) {
+    console.error(err);
+    throw err;
+  }
 }
