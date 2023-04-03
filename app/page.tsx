@@ -18,21 +18,21 @@ export default function Home() {
         <span className="font-semibold text-[10px] bg-[#F4F4F4] text-[#232323] px-4 border-[1px] border-black rounded-full w-fit">
           Currently in private beta
         </span>
-        <h1 className="font-extrabold text-3xl md:text-5xl xl:text-7xl text-[#232323] pt-6 md:pt-10">
+        <h1 className="animate-fadeInRight font-extrabold text-3xl md:text-5xl xl:text-7xl text-[#232323] pt-6 md:pt-10">
           Ruthlessly test
         </h1>
-        <h1 className="font-extrabold text-3xl md:text-5xl xl:text-7xl text-[#232323]">
+        <h1 className="animate-fadeInRight font-extrabold text-3xl md:text-5xl xl:text-7xl text-[#232323]">
           Scale beyond limits
         </h1>
         <h3 className="text-xs md:text-md xl:text-xl font-light w-[36ch] md:w-[72ch] text-center pt-8">
           Complete suite for limit testing with ease of developer experience and
-          performance at the core. Test ruthlessly and sacle beyond limits as
+          performance at the core. Test ruthlessly and scale beyond limits as
           you mitigate site downtime leading to bad UX.
         </h3>
         <HandleRequestAccess />
         <Image
           loading="eager"
-          className="drop-shadow-[0_35px_35px_rgba(0,0,0,0.12)] rounded-2xl"
+          className="animate-fadeInBottom drop-shadow-[0_35px_35px_rgba(0,0,0,0.12)] rounded-2xl"
           src={"/hero.png"}
           height={730}
           width={1280}

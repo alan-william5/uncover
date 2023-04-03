@@ -3,6 +3,7 @@ import "./globals.css";
 import { Toaster } from "@/components/toaster";
 import { Button } from "@/components/button";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/popover";
+import { RequestAccess } from "@/components/onclick";
 
 export const metadata = {
   title: "Create Next App",
@@ -36,15 +37,29 @@ export default function RootLayout({
               >
                 Sign In
               </Button>
-              <Button className="h-[32px] w-[156px] text-white bg-[#232323] rounded-md font-medium text-[14px]">
+              <Button
+                onClick={RequestAccess}
+                className="h-[32px] w-[156px] text-white bg-[#232323] rounded-md font-medium text-[14px]"
+              >
                 Request acccess
               </Button>
             </div>
             <div className="flex md:hidden">
               <Popover>
                 <PopoverTrigger>Open</PopoverTrigger>
-                <PopoverContent>
-                  Place content for the popover here.
+                <PopoverContent className="space-y-4">
+                  <Button
+                    variant={"ghost"}
+                    className="h-[32px] w-full bg-white text-[#232323] border-2 border-[#232323] rounded-md mr-4 font-medium text-[14px]"
+                  >
+                    Sign In
+                  </Button>
+                  <Button
+                    onClick={RequestAccess}
+                    className="h-[32px] w-full text-white bg-[#232323] rounded-md font-medium text-[14px]"
+                  >
+                    Request acccess
+                  </Button>
                 </PopoverContent>
               </Popover>
             </div>

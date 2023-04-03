@@ -12,10 +12,12 @@ export function HandleRequestAccess() {
   return (
     <div className="py-10 flex flex-col md:flex-row w-full space-y-2 md:space-y-0 md:space-x-2 max-w-xl items-center">
       <Input
+        id="emailAddress"
         onChange={(e) => setEmailAddress(e.target.value)}
         type="email"
         className="bg-[#F8F8F8] h-[32px] px-4 rounded-md xl:w-2/3 w-full"
         placeholder="email address"
+        autoFocus={true}
       />
       <RequestAccess emailAddress={emailAddress} />
     </div>

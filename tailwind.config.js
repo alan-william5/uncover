@@ -9,7 +9,22 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      keyframes: {
+        hero: {
+          from: { opacity: 0, transform: "translateY(16px)" },
+          to: { opacity: 1, transform: "translateY(0px)" },
+        },
+        text: {
+          from: { opacity: 0, transform: "translateY(8px)" },
+          to: { opacity: 1, transform: "translateY(0px)" },
+        },
+      },
+      animation: {
+        fadeInBottom: "hero 1.5s ease-in-out",
+        fadeInRight: "text 1.2s ease-in-out",
+      },
+    },
   },
   plugins: [],
-}
+};
